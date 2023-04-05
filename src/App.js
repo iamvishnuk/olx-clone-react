@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import './App.css';
-
-/**
- * ?  =====Import Components=====
- */
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import Signup from './Pages/Signup'
+import Login from './Pages/Login'
+import { Authcontext, FirebaseContext } from './store/Context';
 import Home from './Pages/Home';
 
+
 function App() {
+
+  const { setUser } = useContext(Authcontext)
+  const { FireBase } = useContext(FirebaseContext)
+
+  useEffect(() => {
+    FireBase.auth().onAuthStateChanged((user) => {
+      setUser(user)
+    })
+  })
+
   return (
     <div>
-      <Home />
+      <Router>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/signup'>
+          <Signup />
+        </Route>
+        <Route path='/login'>
+          <Login />
+        </Route>
+      </Router>
     </div>
   );
 }
