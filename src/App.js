@@ -5,6 +5,8 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import { Authcontext, FirebaseContext } from './store/Context';
 import Home from './Pages/Home';
+import Create from './Pages/Create';
+import View from './Pages/ViewPost'
 
 
 function App() {
@@ -29,6 +31,12 @@ function App() {
         </Route>
         <Route path='/login'>
           <Login />
+        </Route>
+        <Route path='/create'>
+          <Create />
+        </Route>
+        <Route path='/view'>
+          <View />
         </Route>
       </Router>
     </div>
