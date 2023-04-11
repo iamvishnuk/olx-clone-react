@@ -4,6 +4,7 @@ import App from './App';
 import { FirebaseContext } from './store/Context';
 import Context from './store/Context';
 import { FireBase } from './firebase/config';
+import Post from './store/PostContext';
 
 ReactDOM.render(
     <FirebaseContext.Provider value={{ FireBase }}>
@@ -11,4 +12,5 @@ ReactDOM.render(
             <App />
         </Context>
     </FirebaseContext.Provider>
-    , document.getElementById('root'));
+    , document.getElementById('root')
+);
